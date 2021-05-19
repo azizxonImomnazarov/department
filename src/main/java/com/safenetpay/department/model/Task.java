@@ -21,7 +21,5 @@ public class Task {
     private LocalDate presentDate;
 
     private LocalDate completedDate; 
-
-    private Long employeeId;
     
 }

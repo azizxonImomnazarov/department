@@ -6,6 +6,7 @@ import io.vertx.core.Promise;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
+import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.StaticHandler;
 
 public class WebVerticle extends AbstractVerticle {
@@ -20,8 +21,32 @@ public class WebVerticle extends AbstractVerticle {
     Promise<Router> promise = Promise.<Router>promise();
     Router router = Router.router(vertx);
     router.route("/*").handler(StaticHandler.create());
+    router.get("/api/employee/list").handler(this::getEmployees);
+    router.post("/api/employee").handler(this::saveEmployee);
+    router.put("/api/employee").handler(this::updateEmployee);
+    router.get("/api/department/list").handler(this::getEmployees);
+    router.post("/api/department").handler(this::saveEmployee);
+    router.put("/api/department").handler(this::updateEmployee);
+    router.get("/api/department/list").handler(this::getEmployees);
+    router.post("/api/department").handler(this::saveEmployee);
+    router.put("/api/department").handler(this::updateEmployee);
     promise.complete(router);
     return promise.future();
+  }
+
+  private Object updateEmployee(RoutingContext rc) {
+
+    return null;
+  }
+
+  private Object getEmployees(RoutingContext rc) {
+
+    return null;
+  }
+
+  private Object saveEmployee(RoutingContext rc) {
+
+    return null;
   }
 
   private Future<Void> startHTTPServer(Router router) {

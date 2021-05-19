@@ -8,7 +8,7 @@ import io.vertx.pgclient.PgConnectOptions;
 import io.vertx.pgclient.PgPool;
 import io.vertx.sqlclient.PoolOptions;
 
-public class DataBaseVerticle extends AbstractVerticle {
+public class DataBaseVerticle extends AbstractVerticle implements Repository {
 
     private PgConnectOptions connectOptions;
     private PoolOptions poolOptions;
