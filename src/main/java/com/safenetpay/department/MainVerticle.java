@@ -36,7 +36,7 @@ public class MainVerticle extends AbstractVerticle {
     ConfigStoreOptions storeOptions = new ConfigStoreOptions()
     .setType("file")
     .setFormat("json")
-    .setConfig(new JsonObject().put("path", "config.json"));
+    .setConfig(new JsonObject().put("path", "conf.json"));
 
     ConfigRetrieverOptions retrieverOptions = new ConfigRetrieverOptions()
     .addStore(storeOptions);

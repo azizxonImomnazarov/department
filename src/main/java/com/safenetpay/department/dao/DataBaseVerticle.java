@@ -23,7 +23,7 @@ public class DataBaseVerticle extends AbstractVerticle implements Repository {
     private Future<Void> doDataBaseMigration() {
         JsonObject dbConfig = config().getJsonObject("db");
         int port = dbConfig.getInteger("port");
-        String host = dbConfig.getString("host")
+        String host = dbConfig.getString("host");
         String dbName = dbConfig.getString("dbName");
         String user = dbConfig.getString("user");
         String password = dbConfig.getString("password");
@@ -39,5 +39,33 @@ public class DataBaseVerticle extends AbstractVerticle implements Repository {
         client = PgPool.pool(vertx, connectOptions, poolOptions);
 
         return Future.<Void>succeededFuture();
+    }
+    
+    private void updateTask() {
+
+    }
+
+    private void saveTask() {
+
+    }
+
+    private void getTask() {
+
+    }
+
+    private void updateDepartment() {
+
+    }
+
+    private void saveDepartment() {
+
+    }
+
+    private void getDepartment() {
+
+    }
+
+    private void updateEmployee() {
+
     }
 }

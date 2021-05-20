@@ -39,9 +39,8 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Employee'
+                type: object
+                $ref: '#/components/schemas/Employee'
         '400':
           description: The specified user ID is invalid (not a number).
         '404':
@@ -104,6 +103,198 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Employee'
+  /deparment/list:
+    get:
+      tags: 
+        - "deparment"
+      summary: Returns a list of deparments.
+      description: Optional extended description in CommonMark or HTML
+      responses:
+        '200':
+          description: A JSON array of employees.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Department'
+  /department:
+    post:
+      tags: 
+      - "department"
+      summary: Creates a new department.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Department'
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
+
+  /department/{id}:
+    put:
+      tags: 
+      - "department"
+      summary: Update employee by id.
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Department'
+    delete:
+      tags: 
+        - "department"
+      summary: Delete department by id.
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        '201':
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Department'
+  /task/list:
+    get:
+      tags: 
+        - "task"
+      summary: Returns a list of task.
+      description: Optional extended description in CommonMark or HTML
+      responses:
+        '200':
+          description: A JSON array of task.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+  /task:
+    post:
+      tags: 
+      - "task"
+      summary: Creates a new task.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: The specified user ID is invalid (not a number).
+        '404':
+          description: A user with the specified ID was not found.
+        default:
+          description: Unexpected error
+
+  /task/{id}:
+    put:
+      tags: 
+      - "task"
+      summary: Update task by id.
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+    delete:
+      tags: 
+        - "task"
+      summary: Delete task by id.
+      parameters:
+        - name: id
+          in: path
+          description: User ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
 components:
   schemas:
     Employee:
@@ -117,6 +308,36 @@ components:
         employeeSurName:
           type: string
           example: 'odilov'
+        taskList: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+    Department:
+      properties:
         departmentId:
-          type : number
-          example: 500
+          type: integer
+          example: 1
+        departmentName:
+          type: string
+          example: 'kamron'
+        employeeList: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Employee'
+    Task:
+      properties:
+        task_id:
+          type: integer
+          example: 1
+        taskDescription:
+          type: string
+          example: 'kamron'
+        isEnd:
+          type: boolean
+          example: false
+        presentDate:
+          type: string
+          example: '12-12-2020'
+        completeDate:
+          type: string
+          example: '12-01-2021'
