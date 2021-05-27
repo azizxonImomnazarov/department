@@ -35,6 +35,14 @@
 
   <dependencies>
     <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-auth-common</artifactId>
+     </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-micrometer-metrics</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.20</version>
@@ -80,7 +88,16 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web-openapi</artifactId>
     </dependency>
-
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.11.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>2.12.3</version>
+    </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-junit5</artifactId>
@@ -106,7 +123,9 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <release>11</release>
+          <source>1.8</source>
+          <target>1.8</target>
+          <verbose>true</verbose>
         </configuration>
       </plugin>
       <plugin>

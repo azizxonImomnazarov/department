@@ -103,10 +103,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Employee'
-  /deparment/list:
+  /department/list:
     get:
       tags: 
-        - "deparment"
+        - "department"
       summary: Returns a list of deparments.
       description: Optional extended description in CommonMark or HTML
       responses:

@@ -1,18 +1,25 @@
 package com.safenetpay.department.dao;
 
+import io.vertx.core.eventbus.Message;
+
 public interface Repository {
 
-    private void updateTask();
+    void updateTask();
 
-    private void saveTask();
+    void saveTask();
 
-    private void getTask();
+    void getTask(Message<Object> mes);
 
-    private void updateDepartment();
+    void updateDepartment();
 
-    private void saveDepartment();
+    void saveDepartment(Message<Object> mes);
 
-    private void getDepartment();
+    void getDepartment(Message<Object> mes);
 
-    private void updateEmployee();
+    void updateEmployee();
+
+    void getEmployees(Message<Object> mes);
+
+    void saveEmployee();
+
 }
